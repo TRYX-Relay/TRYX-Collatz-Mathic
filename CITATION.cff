@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this research package."
+title: "Snowman Conjecture Mathic: local continuity closure and verified Collatz address folds"
+authors:
+  - family-names: Gattenby
+    given-names: Virgil Lee
+version: "publication-2026-09-10"
+date-released: 2026-09-10
+keywords:
+  - Collatz conjecture
+  - 3n+1
+  - hailstone sequences
+  - local closure
+  - formal verification
+  - TRYX
+  - ENAID

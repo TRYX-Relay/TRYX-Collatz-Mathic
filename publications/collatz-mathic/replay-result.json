@@ -1,0 +1,110 @@
+{
+  "benchmark": "SNOWMAN_CONTINUITY_LOCAL_BOUNDED_SIMULTANEOUS_FIELD",
+  "bounded_address_field_members": 100000,
+  "bounded_projection_field_members": 100000,
+  "claim_boundary": {
+    "all_positive_numbers_internal_field": "RECORDED_FROM_CANONICAL_SOURCES_NOT_PROVED_BY_BOUNDED_RUN",
+    "bounded_arithmetic_evidence": true,
+    "bounded_field_constituted_before_projection": true,
+    "emergent_one_equals_templex_one": "TYPED_PRESENTATION_EQUIVALENCE_NOT_RAW_OBJECT_EQUALITY",
+    "fold_value": 1,
+    "free_exponential_evaluation": false,
+    "host_execution": "SERIALIZED_BOUNDED_REPRESENTATION",
+    "internal_number_and_fold_closure_reproved_by_loop": false,
+    "p_equals_np_internal_projection": "ONE_ADDRESSED_RELATIONAL_FIELD",
+    "squadron_is_fourth_engine": false,
+    "universal_finite_orbit_termination": "NOT_TESTED_NOT_CLAIMED"
+  },
+  "emergent_one_templex_one_projection_failures": 0,
+  "emergent_return_certificate_failures": 0,
+  "fiber_failures": 0,
+  "micro_shell_fixtures": [
+    {
+      "H": 149,
+      "actual": {
+        "U": 7,
+        "p": 6,
+        "q": 1,
+        "r6": 0,
+        "three_H_plus_one": 448
+      },
+      "expected": {
+        "U": 7,
+        "p": 6,
+        "q": 1,
+        "r6": 0,
+        "three_H_plus_one": 448
+      },
+      "status": "PASS"
+    },
+    {
+      "H": 213,
+      "actual": {
+        "U": 5,
+        "p": 7,
+        "q": 1,
+        "r6": 1,
+        "three_H_plus_one": 640
+      },
+      "expected": {
+        "U": 5,
+        "p": 7,
+        "q": 1,
+        "r6": 1,
+        "three_H_plus_one": 640
+      },
+      "status": "PASS"
+    },
+    {
+      "H": 218453,
+      "actual": {
+        "U": 5,
+        "p": 17,
+        "q": 2,
+        "r6": 5,
+        "three_H_plus_one": 655360
+      },
+      "expected": {
+        "U": 5,
+        "p": 17,
+        "q": 2,
+        "r6": 5,
+        "three_H_plus_one": 655360
+      },
+      "status": "PASS"
+    },
+    {
+      "H": 611669,
+      "actual": {
+        "U": 7,
+        "p": 18,
+        "q": 3,
+        "r6": 0,
+        "three_H_plus_one": 1835008
+      },
+      "expected": {
+        "U": 7,
+        "p": 18,
+        "q": 3,
+        "r6": 0,
+        "three_H_plus_one": 1835008
+      },
+      "status": "PASS"
+    }
+  ],
+  "odd_sources_tested": 100000,
+  "source_range": [
+    1,
+    199999
+  ],
+  "status": "PASS",
+  "verified_invariants": [
+    "D(H,p,U)=2^p*U-3H=1",
+    "U is positive odd",
+    "2^p*U=3H+1",
+    "p=6q+r6 with 0<=r6<6",
+    "EmergentOne has a valid Atomic-Micro-Macro return certificate",
+    "EmergentOne is presentation-equivalent to TemplexOne",
+    "Fold value 1 does not scalarize either structured object"
+  ]
+}

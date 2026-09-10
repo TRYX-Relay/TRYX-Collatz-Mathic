@@ -1,0 +1,117 @@
+name: Verify TRYX formulas
+'on':
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+    - verification/tryx-lean/**
+    - .github/workflows/verify-tryx-formulas.yml
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: tryx-formulas-${{ github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+    - &id001
+      name: Checkout review branch
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+    - name: Prepare formula project and pin record
+      run: 'mkdir -p verification-logs
+
+        cd verification/tryx-lean
+
+        sha256sum lake-manifest.json > "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
+
+        '
+    - &id002
+      name: Install pinned Lean toolchain
+      run: 'curl --fail --location --retry 3 https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh
+        -o "$RUNNER_TEMP/elan-init.sh"
+
+        sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.34.0-rc2
+
+        printf ''%s\n'' "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+        "$HOME/.elan/bin/lean" +leanprover/lean4:v4.34.0-rc2 --version | tee verification-logs/lean-version.log'
+    - &id003
+      name: Fetch pinned dependencies and Mathlib cache
+      working-directory: verification/tryx-lean
+      run: "lake exe cache get 2>&1 | tee \"$GITHUB_WORKSPACE/verification-logs/dependencies.log\"\
+        \nsha256sum --check \"$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256\"\
+        \npython3 - <<'CHECK'\nimport json,subprocess\nfrom pathlib import Path\n\
+        for p in json.loads(Path('lake-manifest.json').read_text())['packages']:\n\
+        \    actual=subprocess.check_output(['git','-C',str(Path('.lake/packages')/p['name']),'rev-parse','HEAD'],text=True).strip()\n\
+        \    assert actual==p['rev'], (p['name'],actual,p['rev'])\n    print(p['name'],actual)\n\
+        CHECK"
+    - name: Build TRYX atomic statements
+      working-directory: verification/tryx-lean
+      run: lake build TryxProof 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/build.log"
+    - name: Print final theorem axioms
+      working-directory: verification/tryx-lean
+      run: lake env lean TryxProof.lean 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/axioms.log"
+    - &id004
+      name: Preserve verification logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: tryx-formulas-${{ github.run_id }}-${{ github.job }}
+        path: verification-logs/
+        retention-days: 30
+  independent:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+    - *id001
+    - name: Prepare formula project and pin record
+      run: 'mkdir -p verification-logs
+
+        cd verification/tryx-lean
+
+        sha256sum lake-manifest.json > "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
+
+        '
+    - *id002
+    - *id003
+    - name: Build checking tools without building the solution
+      working-directory: verification/tryx-lean
+      run: 'lake build comparator lean4export 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/checker-build.log"
+
+        git clone https://github.com/Zouuup/landrun.git "$RUNNER_TEMP/landrun"
+
+        git -C "$RUNNER_TEMP/landrun" checkout --detach 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+
+        (cd "$RUNNER_TEMP/landrun" && go build -o "$RUNNER_TEMP/landrun-bin" ./cmd/landrun)
+
+        git clone https://github.com/ammkrn/nanoda_lib.git "$RUNNER_TEMP/nanoda"
+
+        git -C "$RUNNER_TEMP/nanoda" checkout --detach 4c544ed4099c8227f07d5de77ad1e69fb0740a27
+
+        (cd "$RUNNER_TEMP/nanoda" && cargo build --release --locked) 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/nanoda-build.log"
+
+        ! test -e .lake/build/lib/lean/TryxProof.olean
+
+        '
+    - name: Independent Comparator and nanoda check
+      working-directory: verification/tryx-lean
+      run: "test \"$(id -u)\" -ne 0\nexport COMPARATOR_LANDRUN=\"$RUNNER_TEMP/landrun-bin\"\
+        \nexport COMPARATOR_LEAN4EXPORT=\"$GITHUB_WORKSPACE/verification/tryx-lean/.lake/packages/lean4export/.lake/build/bin/lean4export\"\
+        \nexport COMPARATOR_NANODA=\"$RUNNER_TEMP/nanoda/target/release/nanoda_bin\"\
+        \ntest -x \"$COMPARATOR_LEAN4EXPORT\"\ntest -x \"$COMPARATOR_NANODA\"\nsystemd-run\
+        \ --user --wait --pipe --collect \\\n  --property=RestrictAddressFamilies=~AF_UNIX\
+        \ \\\n  --working-directory=\"$PWD\" \\\n  --setenv=PATH=\"$PATH\" \\\n  --setenv=HOME=\"\
+        $HOME\" \\\n  --setenv=COMPARATOR_LANDRUN=\"$COMPARATOR_LANDRUN\" \\\n  --setenv=COMPARATOR_LEAN4EXPORT=\"\
+        $COMPARATOR_LEAN4EXPORT\" \\\n  --setenv=COMPARATOR_NANODA=\"$COMPARATOR_NANODA\"\
+        \ \\\n  lake exe comparator comparator.json \\\n  2>&1 | tee \"$GITHUB_WORKSPACE/verification-logs/comparator.log\"\
+        \n"
+    - *id004
