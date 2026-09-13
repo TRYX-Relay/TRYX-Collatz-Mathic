@@ -5,8 +5,7 @@
 
 Badges show workflow status for the statements in this repository. The scope of each result is described below.
 
-
-**Virgil Lee Gattenby** - TRYX / ENAID / MATHIC
+**Virgil Lee Gattenby** - TRYX / ENIAD / MATHIC
 
 Collatz conjecture (3n+1 problem, hailstone sequences) research: local continuity closure, retained address packets, and formally verified fold identities.
 
@@ -34,15 +33,15 @@ The Python command checks the archived package and replay. To build the formal s
 
 [Short demonstration walkthrough](DEMONSTRATION.md) · [Citation metadata](CITATION.cff)
 
-## Research triad
+## Research storefronts
 
-These three research packages share the TRYX → ENAID → Laws → MATHIC construction order. Sheet Mathics presents the work through scores and lyrics, with accompanying executable checks and formal statements.
+These public repositories share the TRYX → ENIAD → Laws → MATHIC construction order while preserving separate claim boundaries.
 
-| Research | Demonstrated scope |
+| Research | Current public review focus |
 | --- | --- |
-| [Navier–Stokes Mathic v6](https://github.com/TRYX-Relay/TRYX-Navier-Stokes-Mathic) | Signed Action accounting identities and recorded corridor replay |
-| [Problem No Problem / P vs NP](https://github.com/TRYX-Relay/TRYX-PNP-MATHIC) | Existential Boolean folding semantics and finite benchmarks |
-| [Snowman / Collatz conjecture](https://github.com/TRYX-Relay/TRYX-Collatz-Mathic) | Address reconstruction, fold identities, and local continuity checks |
+| [Navier–Stokes ANEA / MATHIC v7.2](https://github.com/TRYX-Relay/TRYX-Navier-Stokes-Mathic) | Canonical MATHIC review target; Lean-checked finite/algebraic and conditional score; global 3-D regularity remains open |
+| [Problem No Problem / P vs NP](https://github.com/TRYX-Relay/TRYX-PNP-MATHIC) | Existential Boolean folding semantics and finite benchmarks; conventional polynomial-time P=NP remains unestablished |
+| **Snowman / Collatz conjecture** | Address reconstruction, fold identities, and local continuity checks; universal termination remains unestablished |
 
 ## Independent review
 
