@@ -1,0 +1,23 @@
+{
+  "challenge_module": "TryxChallenge",
+  "solution_module": "TryxProof",
+  "enable_nanoda": true,
+  "theorem_names": [
+    "TRYX.NS.one_tension_accounting",
+    "TRYX.NS.v6_recorded_positive_remainder",
+    "TRYX.NS.v6_atomic_remainder_not_exhausted",
+    "TRYX.PNP.boolean_fold_algebra",
+    "TRYX.PNP.hinge_exact",
+    "TRYX.PNP.resolve_correct",
+    "TRYX.Snowman.positive_dyadic_factorization",
+    "TRYX.Snowman.packet_fold_one",
+    "TRYX.Snowman.all_odd_addresses_have_fold_one",
+    "TRYX.Snowman.different_sources_keep_distinct_packets",
+    "TRYX.Snowman.archived_four_reconstructions"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
