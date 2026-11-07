@@ -1,0 +1,33 @@
+{
+  "id": "TRYX.COLLATZ.FOUR_PART.PUBLIC_SOURCE.261107.V1",
+  "date": "2026-11-07",
+  "status": "PUBLIC_SOURCE_ASSEMBLY",
+  "source_commit": "c997bab71d24edc148dc36df4917023b62df8c2b",
+  "parts": [
+    {
+      "role": "Collatz Snowman Conjecture Paper",
+      "path": "Collatz_Snowman_Conjecture_Paper.pdf",
+      "git_blob": "c5fb73be3a46952af414216421969a104bdaae90"
+    },
+    {
+      "role": "Collatz MATHIC",
+      "path": "Collatz_MATHIC.html",
+      "git_blob": "98283fbe138c5488f98fcd6a81c16aec2ec02bbd",
+      "canonical_id": "TRYX.SNOWMAN.CONJECTURE.MATHIC.TRIAD.CHART.STANDARD.SUCCESSOR.260902.LOCKED.html",
+      "sha256": "c74e9f07ea2c91957b958f267fc713f412493fb4a8e7ad17901effcd11661202",
+      "role_of_copy": "IDENTICAL_PUBLIC_ALIAS_OF_ACTIVE_SCORE"
+    },
+    {
+      "role": "ReadMe",
+      "path": "README.md"
+    },
+    {
+      "role": "Lean",
+      "path": "Lean/",
+      "git_tree": "b6234a7e20d36988367c12159f9c32a51e7d5c7c"
+    }
+  ],
+  "publication_waypoint": "publications/collatz-paper/publication-9.24/WAYPOINT.json",
+  "lean_verification": "publications/collatz-paper/publication-9.24/verification-evidence.json",
+  "scope": "Packaging and retrieval only; paper, MATHIC and Lean bytes unchanged; no new proof execution."
+}

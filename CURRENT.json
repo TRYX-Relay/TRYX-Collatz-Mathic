@@ -1,8 +1,12 @@
 {
   "edition": "9.24",
-  "paper": "publications/collatz-paper/publication-9.24/Snowman_Conjecture_Publication_9_24.pdf",
-  "waypoint": "publications/collatz-paper/publication-9.24/WAYPOINT.json",
-  "lean": "publications/collatz-paper/publication-9.24/lean/TryxProof.lean",
+  "paper": "Collatz_Snowman_Conjecture_Paper.pdf",
+  "mathic": "Collatz_MATHIC.html",
+  "readme": "README.md",
+  "lean": "Lean/TryxProof.lean",
+  "lean_project": "Lean/",
+  "waypoint": "publications/collatz-paper/public-source-261107-v1/WAYPOINT.json",
+  "publication_waypoint": "publications/collatz-paper/publication-9.24/WAYPOINT.json",
   "verification": "publications/collatz-paper/publication-9.24/verification-evidence.json",
   "predecessor": "publications/collatz-paper/draft-9.23/COLLATZ_REVIEW.pdf"
 }
