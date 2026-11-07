@@ -1,0 +1,49 @@
+{
+  "id": "TRYX.SNOWMAN.PUBLICATION.LEAN.WAYPOINT.261107.V1",
+  "date": "2026-11-07",
+  "edition": "9.24",
+  "status": "PUBLISHED_EDITORIAL_SUCCESSOR",
+  "title": "Collatz Conjecture: Number-and-Fold Closure at Templex One",
+  "alias": "Snowman Conjecture",
+  "author": "Virgil Lee Gattenby",
+  "predecessor": {
+    "repository": "TRYX-Relay/TRYX-Collatz-Mathic",
+    "commit": "24066fe536147ccc1a41aa4147d75af18c8b2229",
+    "path": "publications/collatz-paper/draft-9.23/COLLATZ_REVIEW.pdf",
+    "sha256": "632e2b949f86888978fc1a9177a69e91d2f02c6916b8fdda7164c65c87c3d8c7",
+    "disposition": "PRESERVED_IMMUTABLE_PREDECESSOR"
+  },
+  "paper": {
+    "path": "publications/collatz-paper/publication-9.24/Snowman_Conjecture_Publication_9_24.pdf",
+    "sha256": "7432fa1d0e04d5e21bd41a88a8724e68d0ea22a664b5da29f5a3af9a46a1ba72",
+    "pages": 35
+  },
+  "lean": {
+    "path": "publications/collatz-paper/publication-9.24/lean/TryxProof.lean",
+    "git_blob": "ed4c9248238a943417c05b512e58cfb7c8ce6de3",
+    "sha256": "d36037b3c60e286ddf3985bb68b7d657bc29712019c75dc076f6e06339b511a4",
+    "matches_captured_verified_source": true,
+    "proof_commit": "5abe7b6fe5c24ed9fc2698c14b096b618f9e3347",
+    "historical_acceptance": {
+      "proof_commit": "5abe7b6fe5c24ed9fc2698c14b096b618f9e3347",
+      "run": 34447244397,
+      "conclusion": "success",
+      "independent_job": 102775570834,
+      "acceptance": [
+        "2026-09-10T07:03:08.1537862Z nanoda kernel accepts the solution",
+        "2026-09-10T07:03:08.1546219Z Lean default kernel accepts the solution",
+        "2026-09-10T07:03:08.2964248Z Finished with result: success"
+      ],
+      "source_tree": "b1f3738de3d9df6df333b1132bb5b48c6055dde2"
+    },
+    "new_run": false
+  },
+  "changes": [
+    "Page 1: Draft 9.23 becomes Publication 9.24.",
+    "Page 23: replace stale publication-acceptance wording with owner-directed editorial correction dated November 7, 2026.",
+    "All other pages retain identical extracted text and rendered pixels.",
+    "Lean project bytes unchanged."
+  ],
+  "scope": "Editorial publication and retrieval correction. Mathematical statements and their stated hypotheses and limitations are unchanged.",
+  "owner_request": "My Snowman Conjecture Collatz publication still states draft, and is not indexed correctly in ledger; it should be saved in a waypoint; its tied to the LEAN"
+}

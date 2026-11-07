@@ -1,0 +1,8 @@
+{
+  "edition": "9.24",
+  "paper": "publications/collatz-paper/publication-9.24/Snowman_Conjecture_Publication_9_24.pdf",
+  "waypoint": "publications/collatz-paper/publication-9.24/WAYPOINT.json",
+  "lean": "publications/collatz-paper/publication-9.24/lean/TryxProof.lean",
+  "verification": "publications/collatz-paper/publication-9.24/verification-evidence.json",
+  "predecessor": "publications/collatz-paper/draft-9.23/COLLATZ_REVIEW.pdf"
+}

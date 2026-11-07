@@ -1,0 +1,12 @@
+{
+  "proof_commit": "5abe7b6fe5c24ed9fc2698c14b096b618f9e3347",
+  "run": 34447244397,
+  "conclusion": "success",
+  "independent_job": 102775570834,
+  "acceptance": [
+    "2026-09-10T07:03:08.1537862Z nanoda kernel accepts the solution",
+    "2026-09-10T07:03:08.1546219Z Lean default kernel accepts the solution",
+    "2026-09-10T07:03:08.2964248Z Finished with result: success"
+  ],
+  "source_tree": "b1f3738de3d9df6df333b1132bb5b48c6055dde2"
+}
