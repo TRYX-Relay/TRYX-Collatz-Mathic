@@ -1,0 +1,39 @@
+version: "v0.4"
+
+project:
+  name: "Collatz Snowman Conjecture"
+  description: >-
+    Formalization of positive dyadic factorization,
+    source addressing, packet folding and
+    Templex One closure within TRYX MATHIC.
+  authors:
+    - "Virgil Lee Gattenby"
+  responsible_maintainers:
+    - "Virgil Lee Gattenby"
+
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11B83"]
+
+sources:
+  - title: "Collatz Snowman Conjecture"
+    type: paper
+    relationship: formalizes
+    authors:
+      - "Virgil Lee Gattenby"
+
+status:
+  scope: >-
+    Formalized Number-and-Fold results.
+    Universal finite Collatz orbit termination
+    is not established by these declarations.
+
+automation:
+  methods:
+    - method: agent
+      models: ["ChatGPT"]
+      framework: "TRYX MATHIC"
+
+review:
+  status: "self-assessed"
+  notes: "Recorded Lean and NanoDa verification."
