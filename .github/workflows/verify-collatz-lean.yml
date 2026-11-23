@@ -1,0 +1,37 @@
+name: Verify Collatz MATHIC Lean
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - palomar-compatibility
+
+permissions:
+  contents: read
+
+jobs:
+  lean-kernel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.35.0-rc2
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Update dependencies
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Build proof
+        working-directory: Lean
+        run: lake build TryxProof
+
+      - name: Kernel verification
+        working-directory: Lean
+        run: lake env lean TryxProof.lean
