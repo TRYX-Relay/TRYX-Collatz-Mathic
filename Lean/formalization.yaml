@@ -1,6 +1,7 @@
 version: "v0.4"
 
 project:
+  license: CC-BY-NC-4.0
   name: "Collatz Snowman Conjecture"
   description: >-
     Formalization of positive dyadic factorization,
